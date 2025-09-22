@@ -607,7 +607,7 @@ select {
   box-sizing: border-box;
 }
 
-#cal-btn {
+.btn-calc {
   font-family: poppins;
   background-color: #4F200D;
   color: white;
@@ -619,7 +619,7 @@ select {
   margin-top: 20px;
 }
 
-#cal-btn:hover {
+.btn-calc:hover {
   transition: all 0.3s ease;
   transform: scale(1.1);
   background-color: #FF9A00;

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
 
-  // Create overlay for blur effect
+  // Overlay for blur effect
   const overlay = document.createElement("div");
   overlay.classList.add("menu-overlay");
   document.body.appendChild(overlay);
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.toggle("active");
     });
 
-    // Close the menu when clicking a nav link
     document.querySelectorAll(".nav-menu a").forEach(link => {
       link.addEventListener("click", () => {
         hamburger.classList.remove("active");
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Close the menu when clicking outside (on overlay)
     overlay.addEventListener("click", () => {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
@@ -486,78 +484,69 @@ const resetBtn = document.getElementById('reset-btn');
 let currentTimerInterval;
 let workoutList = [];
 let currentExerciseIndex = 0;
-let sound = new Audio('path/to/your/sound.mp3'); // Replace with your sound file path
+let sound = new Audio(''); // Add path to your sound file if needed
 
-// Function to generate a random workout plan
 function generateWorkout() {
     const selectedBodyPart = bodySelect.options[bodySelect.selectedIndex].textContent;
     const selectedEquipment = equipmentSelect.options[equipmentSelect.selectedIndex].textContent;
 
-    // Clear previous workout plan
-    workoutPlanList.innerHTML = '';
+    if (!workouts[selectedBodyPart] || !workouts[selectedBodyPart][selectedEquipment]) {
+        alert('No workout found for this selection!');
+        return;
+    }
 
-    // Get the workout plan based on user selection
     workoutList = workouts[selectedBodyPart][selectedEquipment];
-    
-    // Display the workout plan and timer on the page
+    currentExerciseIndex = 0;
+    workoutPlanList.innerHTML = '';
     displayWorkoutPlan(workoutList);
-    
-    // Show the workout plan and timer containers
+
     workoutPlanContainer.style.display = 'block';
     timerContainer.style.display = 'flex';
 }
 
-// Function to display the workout plan on the page
 function displayWorkoutPlan(plan) {
-    plan.forEach((exercise, index) => {
+    plan.forEach((exercise) => {
         const exerciseCard = document.createElement('div');
-        exerciseCard.className = 'exercise-card'; // Use a class for styling
-        exerciseCard.innerHTML = `
-            <h2>${exercise.name}</h2>
-            <p>${exercise.sets} Sets x ${exercise.reps}</p>
-        `;
+        exerciseCard.className = 'exercise-card';
+        exerciseCard.innerHTML = `<h2>${exercise.name}</h2><p>${exercise.sets} Sets x ${exercise.reps}</p>`;
         workoutPlanList.appendChild(exerciseCard);
     });
 
-    // Initialize timer display with the first exercise's time
     if (plan.length > 0) {
         timerDisplay.textContent = formatTime(plan[0].timer);
     }
 }
 
-// Function to format time (e.g., 60 seconds -> 01:00)
 function formatTime(totalSeconds) {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
     return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
 }
 
-// Function to start a countdown timer
-function startTimer(duration) {
-    let timer = duration;
+function startTimer() {
+    if (currentExerciseIndex >= workoutList.length) return;
+
+    let timer = workoutList[currentExerciseIndex].timer;
+
+    clearInterval(currentTimerInterval);
     currentTimerInterval = setInterval(() => {
         timerDisplay.textContent = formatTime(timer);
-        
         if (--timer < 0) {
             clearInterval(currentTimerInterval);
-            if (sound) sound.play(); // Play a sound when the timer finishes
-            alert('Time for the next exercise!');
-            // Add logic here to automatically move to the next exercise if desired
+            if (sound) sound.play();
+            currentExerciseIndex++;
+            if (currentExerciseIndex < workoutList.length) {
+                startTimer();
+            } else {
+                alert('Workout Complete! Great Job!');
+            }
         }
     }, 1000);
 }
 
-// Event listener for the main button
 generateBtn.addEventListener('click', generateWorkout);
 
-// Event listeners for the timer controls
-startBtn.addEventListener('click', () => {
-    // Get the duration from the currently active workout card or from a variable
-    if (workoutList.length > 0) {
-        const firstExerciseTime = workoutList[0].timer; // Using the first exercise for simplicity
-        startTimer(firstExerciseTime);
-    }
-});
+startBtn.addEventListener('click', startTimer);
 
 stopBtn.addEventListener('click', () => {
     clearInterval(currentTimerInterval);
@@ -566,6 +555,7 @@ stopBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     clearInterval(currentTimerInterval);
     if (workoutList.length > 0) {
+        currentExerciseIndex = 0;
         timerDisplay.textContent = formatTime(workoutList[0].timer);
     }
 });
