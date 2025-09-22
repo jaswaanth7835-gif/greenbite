@@ -494,6 +494,50 @@ footer {
   gap: 25px;
 
 }
+@media (max-width: 600px) {
+  /* Search box fills screen */
+  .search-container {
+    width: 90%;
+  }
+
+  /* Time buttons stack */
+  .time-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .time-menu button {
+    width: 45%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Recipe cards stack full width */
+  .recipe-image-gallery .images {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 15px;
+    padding: 0;
+  }
+
+  .recipe-image-gallery .images img {
+    width: 100%;
+    max-width: 320px; /* keeps aspect ratio reasonable */
+    height: auto;     /* no fixed height */
+    border-radius: 10px;
+  }
+
+  .recipe-image-gallery .images h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .recipe-image-gallery .images button {
+    width: 90%;
+    font-size: 12px;
+  }
+}
 
 .images img {
   width: 400px;
