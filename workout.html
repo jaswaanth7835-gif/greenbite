@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenBite-Workout Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="Images/ChatGPT Image Sep 13, 2025, 08_56_08 PM.png"
+        alt="GreenBite Logo"
+        class="logo"
+      />
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="recipe.html">Healthy Recipe</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workout.html">Workout Generator</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </header>
+    <section class="welcome">Workout Generator</section>
+    <div class="workout-container">
+      <div class="muscle">
+        <label class="body">Body Part:</label>
+        <select id="body">
+          <option id="full-body">Full Body</option>
+          <option id="upper-body">Upper Body</option>
+          <option id="lower-body">Lower Body</option>
+          <option id="arms">Arms</option>
+          <option id="back">Back</option>
+          <option id="legs">Legs</option>
+        </select>
+      </div>
+      <div class="workout">
+        <label class="equipments">Equipments:</label>
+        <select id="equipments">
+          <option id="none">None</option>
+          <option id="dumbbells">Dumbbells</option>
+          <option id="barbells">Barbells</option>
+          <option id="medicine-ball">Medicine Ball</option>
+          <option id="resistance-band">Resistance Band</option>
+          <option id="cable-machines">Cable Machines</option>
+          <option id="pull-up-bars">Pull Up Bars</option>
+          <option id="suspension-trainers">Suspension trainers (TRX)</option>
+          <option id="treadmill">Treadmill</option>
+          <option id="stationary-bike">Stationary bike</option>
+          <option id="rowing-machine">Rowing machine</option>
+          <option id="jump-rope">Jump Rope</option>
+          <option id="weight-plates">Weight Plates</option>
+          <option id="squat-rack">Squat-Rack</option>
+          <option id="Bench">Bench (flat, incline, adjustable)</option>
+          <option id="sand-Bags">SandBags</option>
+          <option id="battle-rope">Battle Ropes</option>
+        </select>
+      </div>
+    </div>
+    <div class="gen-btn">
+      <button type="button">Generate Workout</button>
+    </div>
+
+    <div id="workout-plan-container" style="display: none">
+      <h2>Generated Workout Plan</h2>
+      <div id="workout-plan-list"></div>
+    </div>
+
+    <div class="timer-container" style="display: none">
+      <h1>Workout Timer</h1>
+      <div id="timer">00:00</div>
+      <button id="start-btn" type="button">Start</button>
+      <button id="stop-btn" type="button">Stop</button>
+      <button id="reset-btn" type="button">Reset</button>
+    </div>
+    <main>
+      <section class="quotes-section">
+        <h2>Daily Inspiration</h2>
+        <div class="quote-card">
+          <p>"The only way to do great work is to love what you do."</p>
+          <span>- Steve Jobs</span>
+        </div>
+        <div class="quote-card">
+          <p>"Believe you can and you're halfway there."</p>
+          <span>- Theodore Roosevelt</span>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <!-- About -->
+        <div class="footer-col">
+          <h4>About GreenBite</h4>
+          <p>
+            Your daily source for healthy recipes, workouts, and mindful living
+            tips.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="recipe.html">Healthy Recipes</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="mindfulness.html">Mindfulness</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 GreenBite | All Rights Reserved</p>
+      </div>
+    </footer>
+
+    <script src="workout.js"></script>
+  </body>
+</html>

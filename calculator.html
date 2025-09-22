@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenBite-Calorie Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=egg"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="Images/ChatGPT Image Sep 13, 2025, 08_56_08 PM.png"
+        alt="GreenBite Logo"
+        class="logo"
+      />
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="recipe.html">Healthy Recipe</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workout.html">Workout Generator</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </header>
+    <section class="welcome">Calorie & Nutrition Calculator</section>
+    <div class="calculator-container">
+      <div class="form-group">
+        <label for="age">Age (years):</label>
+        <input type="number" id="age" required />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required />
+      </div>
+      <div class="form-group">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required />
+      </div>
+      <div class="form-group">
+        <label for="activity">Activity Level:</label>
+        <select id="activity" required>
+          <option value="1.2">Sedentary</option>
+          <option value="1.375">Lightly Active</option>
+          <option value="1.55">Moderately Active</option>
+          <option value="1.725">Very Active</option>
+          <option value="1.9">Super Active</option>
+        </select>
+      </div>
+      <button id="cal-btn" onclick="calculate()">Calculate</button>
+
+      <div class="results">
+        <div class="result-box">
+          <h2>BMR</h2>
+          <p id="bmr-output">0</p>
+          <span>Calories</span>
+        </div>
+        <div class="result-box">
+          <h2>TDEE</h2>
+          <p id="tdee-output">0</p>
+          <span>Calories</span>
+        </div>
+      </div>
+    </div>
+    <div class="macronutrient-container">
+      <h2>Macronutrient</h2>
+      <div class="nutrient-row">
+        <div class="nutrient-info">
+          <div class="icon">Protein</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="protein-bar"></div>
+          </div>
+        </div>
+        <div class="nutrient-values">
+          <p id="protein-grams">0 g</p>
+          <p id="protein-percent">0%</p>
+        </div>
+      </div>
+
+      <div class="nutrient-row">
+        <div class="nutrient-info">
+          <div class="icon">Carbohydrates</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="carbs-bar"></div>
+          </div>
+        </div>
+        <div class="nutrient-values">
+          <p id="carbs-grams">0 g</p>
+          <p id="carbs-percent">0%</p>
+        </div>
+      </div>
+
+      <div class="nutrient-row">
+        <div class="nutrient-info">
+          <div class="icon">Fats</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="fats-bar"></div>
+          </div>
+        </div>
+        <div class="nutrient-values">
+          <p id="fats-grams">0 g</p>
+          <p id="fats-percent">0%</p>
+        </div>
+      </div>
+      <div class="macro-btn">
+        <button id="calculate-btn">Calculate</button>
+      </div>
+    </div>
+    <script src="calculator.js"></script>
+    <footer>
+      <div class="footer-container">
+        <!-- About -->
+        <div class="footer-col">
+          <h4>About GreenBite</h4>
+          <p>Your daily source for healthy recipes, workouts, and mindful living tips.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="recipe.html">Healthy Recipes</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="mindfulness.html">Mindfulness</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 GreenBite | All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

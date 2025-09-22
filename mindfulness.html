@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenBite-Mindfulness</title>
+    <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <header>
+      <img
+        src="Images/ChatGPT Image Sep 13, 2025, 08_56_08 PM.png"
+        alt="GreenBite Logo"
+        class="logo"
+      />
+      <button class="hamburger"><span></span><span></span><span></span></button>
+      <ul class="nav-menu">
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="recipe.html">Healthy Recipe</a></li>
+        <li><a href="calculator.html">Calorie Calculator</a></li>
+        <li><a href="workout.html">Workout Generator</a></li>
+        <li><a href="mindfulness.html">Mindfulness</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </header>
+
+    <section class="welcome">Mindfulness</section>
+
+      <div class="main-content">
+        <div class="breathing-section">
+          <h2 class="section-title">
+            <i class="fas fa-wind"></i>
+            Guided Breathing
+          </h2>
+          <div class="breathing-circle">
+            <div class="circle-animation"></div>
+            <div class="breathing-text">Breathe In</div>
+          </div>
+          <div class="controls">
+            <button class="btn btn-primary" id="start-breathing">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button class="btn btn-secondary" id="reset-breathing">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="timer-section">
+          <h2 class="section-title">
+            <i class="fas fa-clock"></i>
+            Meditation Timer
+          </h2>
+          <div class="timer-display" id="timer">25:00</div>
+          <div class="time-options">
+            <div class="time-option active" data-time="5">5 min</div>
+            <div class="time-option" data-time="10">10 min</div>
+            <div class="time-option" data-time="15">15 min</div>
+            <div class="time-option" data-time="25">25 min</div>
+          </div>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="start-timer">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button class="btn btn-secondary" id="pause-timer">
+              <i class="fas fa-pause"></i> Pause
+            </button>
+            <button class="btn btn-secondary" id="reset-timer">
+              <i class="fas fa-redo"></i> Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ambient-sounds">
+        <h2 class="section-title">
+          <i class="fas fa-music"></i>
+          Ambient Sounds
+        </h2>
+        <div class="sound-options">
+          <div class="sound-option" data-sound="rain">
+            <i class="fas fa-cloud-rain sound-icon"></i>
+            <h3>Rainfall</h3>
+          </div>
+          <div class="sound-option" data-sound="forest">
+            <i class="fas fa-tree sound-icon"></i>
+            <h3>Forest</h3>
+          </div>
+          <div class="sound-option" data-sound="waves">
+            <i class="fas fa-water sound-icon"></i>
+            <h3>Ocean Waves</h3>
+          </div>
+          <div class="sound-option" data-sound="fire">
+            <i class="fas fa-fire sound-icon"></i>
+            <h3>Fireplace</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <h2><i class="fas fa-chart-line"></i> Your Progress</h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number" id="sessions-count">0</div>
+            <div class="stat-label">Sessions Completed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" id="total-time">0</div>
+            <div class="stat-label">Minutes Meditated</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" id="current-streak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="rain-sound" loop>
+      <source
+        src="audio/rain-ambience-319235.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="forest-sound" loop>
+      <source
+        src="audio/forest-ambience-296528.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="waves-sound" loop>
+      <source
+        src="audio/waves-crashing-397977.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="fire-sound" loop>
+      <source
+        src="audio/fire-sounds-405444.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <footer>
+      <div class="footer-container">
+        <!-- About -->
+        <div class="footer-col">
+          <h4>About GreenBite</h4>
+          <p>
+            Your daily source for healthy recipes, workouts, and mindful living
+            tips.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="recipe.html">Healthy Recipes</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="mindfulness.html">Mindfulness</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 GreenBite | All Rights Reserved</p>
+      </div>
+    </footer>
+    <script src="mindfulness.js"></script>
+  </body>
+</html>
